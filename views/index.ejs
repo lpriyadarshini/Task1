@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
+    
+    <title>Student Details</title>
+
+    <script>
+        $(function () {
+
+            $('.message .close')
+                .on('click', function () {
+                    $(this)
+                        .closest('.message')
+                        .transition('fade')
+                        ;
+                });
+            $('select.dropdown')
+                .dropdown()
+            ;
+            $('.ui.form')
+  .form({
+    fields: {
+      FirstName    : 'empty',
+      LastName   : 'empty',
+      RollNo   : 'empty',
+      Dob : 'empty',
+      Gender : 'empty',
+      Email: 'empty',
+      PhoneNo : ['minLength[10]', 'empty'],
+      Address: 'empty'
+    }
+  })
+;
+
+        });
+    </script>
+</head>
+
+<body>
+    <br>
+    <h4 class="ui horizontal divider green header container">
+        Student Details
+    </h4>
+    <div class="ui container">
+        <% if(info.length > 0){ %>
+        <center>
+            <div class="ui positive  message transition">
+                <i class="close icon"></i>
+                <div class="header">
+                    Details Inserted
+                </div>
+            </div>
+        </center>
+        <% } %>
+        <div class="ui segment form">
+        <form method="post" action="/">
+            <label>Name</label>
+            <div class="two fields">
+                <div class="field">
+                    <input type="text" name="FirstName" placeholder="First Name" >
+                </div>
+                <div class="field">
+                    <input type="text" name="LastName" placeholder="Last Name" >
+                </div>
+            </div>
+
+
+            <label>RollNo</label>
+            <div class="field">
+                <input type="text" name="RollNo" placeholder="RollNo" >
+            </div>
+            <label>Date Of Birth</label>
+            <div class="field">
+                <input type="date" name="Dob" >
+            </div>
+
+
+            <label>Gender</label>
+            <div class="field">
+                <select name="Gender" class="select dropdown">
+                    <option value="">Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="FEmale">Female</option>
+                </select>
+            </div>
+            <label>Email</label>
+            <div class="field">
+                <input type="text" name="Email" placeholder="Email" >
+            </div>
+            <label>PhoneNo</label>
+            <div class="field">
+                <input type="text" name="PhoneNo" placeholder="PhoneNo">
+            </div>
+
+            <div class="field">
+                <label>Address</label>
+                <textarea rows="2" name="Address"></textarea>
+            </div>
+            <center>
+                <button class="ui button green" type="submit">Insert</button>
+            </center>
+        </form>
+    </div>
+    </div>
+</body>
+
+</html>
